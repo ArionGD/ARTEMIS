@@ -1,0 +1,197 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout>
+	<!-- Hero Section with Glowing Gradients -->
+	<section class="relative overflow-hidden py-24 sm:py-32">
+		<!-- Background Glow Nodes (Center Emerald Green + 4 Corner Blue Vignette) -->
+		<div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 h-[35rem] w-[35rem] rounded-full bg-emerald-500/12 dark:bg-emerald-500/8 blur-[140px]"></div>
+		<div class="absolute top-0 left-0 -z-10 h-[25rem] w-[25rem] rounded-full bg-sky-500/8 dark:bg-sky-500/5 blur-[120px]"></div>
+		<div class="absolute top-0 right-0 -z-10 h-[25rem] w-[25rem] rounded-full bg-sky-500/8 dark:bg-sky-500/5 blur-[120px]"></div>
+		<div class="absolute bottom-0 left-0 -z-10 h-[25rem] w-[25rem] rounded-full bg-sky-500/8 dark:bg-sky-500/5 blur-[120px]"></div>
+		<div class="absolute bottom-0 right-0 -z-10 h-[25rem] w-[25rem] rounded-full bg-sky-500/8 dark:bg-sky-500/5 blur-[120px]"></div>
+
+		<div class="mx-auto max-w-7xl px-6 lg:px-8 text-center">
+			<div class="inline-flex items-center gap-2 rounded-full bg-emerald-50 dark:bg-emerald-950/30 px-4 py-1.5 text-xs font-semibold text-emerald-700 dark:text-emerald-400 border border-emerald-500/20 mb-8 animate-fade-in">
+				<span class="relative flex h-2 w-2">
+					<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+					<span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+				</span>
+				Now Live: Ranipet Microclimate Tracking
+			</div>
+			
+			<h1 class="font-outfit text-4xl sm:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white max-w-4xl mx-auto leading-tight sm:leading-none">
+				Proving the Power of <br/>
+				<span class="bg-linear-to-r from-emerald-600 via-emerald-500 to-teal-600 dark:from-emerald-400 dark:to-teal-400 bg-clip-text text-transparent">
+					Food Forests
+				</span>
+			</h1>
+			
+			<p class="mt-6 text-base sm:text-lg leading-relaxed text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+				ARTEMIS provides real-time ecological tracking for SEA Movement’s climate-resilient farms, proving scientifically that nature-based agriculture creates cooler, wetter, and healthier microclimates.
+			</p>
+			
+			<div class="mt-10 flex flex-wrap items-center justify-center gap-6">
+				<a href="/dashboard" class="rounded-2xl bg-linear-to-r from-emerald-500 to-teal-400 px-8 py-4 text-sm font-bold text-slate-950 shadow-[0_4px_20px_rgba(16,185,129,0.3)] hover:scale-[1.02] hover:brightness-110 active:scale-98 transition-all">
+					View Live Dashboard
+				</a>
+				<a href="/log" class="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-emerald-500/30 dark:hover:border-emerald-500/30 px-8 py-4 text-sm font-bold text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-450 shadow-xs transition-all duration-300">
+					Log Field Data
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- How It Works Section -->
+	<section class="py-20 border-t-2 border-black dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/30">
+		<div class="mx-auto max-w-7xl px-6 lg:px-8">
+			<div class="text-center max-w-3xl mx-auto">
+				<h2 class="font-outfit text-2xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white">How We Validate Climate Resilience</h2>
+				<p class="mt-4 text-sm sm:text-base text-slate-600 dark:text-slate-400">
+					Bridging local manual inputs with global climate models to create an undeniable data stream of ecological restoration.
+				</p>
+			</div>
+
+			<div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+				<!-- Step 1 -->
+				<div class="relative rounded-2xl bg-white/45 dark:bg-slate-900/40 backdrop-blur-lg border border-white/50 dark:border-slate-800/80 hover:border-emerald-500/35 dark:hover:border-emerald-500/40 shadow-[0_8px_32px_0_rgba(31,38,135,0.04)] transition-all duration-300 hover:-translate-y-1">
+					<div class="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 border border-emerald-500/10 dark:border-emerald-500/20 mb-6">
+						<i data-lucide="thermometer" class="w-5 h-5"></i>
+					</div>
+					<h3 class="text-lg font-semibold text-slate-900 dark:text-white font-outfit">1. Data Collection</h3>
+					<p class="mt-3 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+						Local farmers and community volunteers record forest interior temperature and water levels from physical instruments on site.
+					</p>
+				</div>
+
+				<!-- Step 2 -->
+				<div class="relative rounded-2xl bg-white/45 dark:bg-slate-900/40 backdrop-blur-lg border border-white/50 dark:border-slate-800/80 hover:border-emerald-500/35 dark:hover:border-emerald-500/40 shadow-[0_8px_32px_0_rgba(31,38,135,0.04)] transition-all duration-300 hover:-translate-y-1">
+					<div class="flex h-12 w-12 items-center justify-center rounded-xl bg-teal-50 dark:bg-teal-950/40 text-teal-700 dark:text-teal-400 border border-teal-500/10 dark:border-teal-500/20 mb-6">
+						<i data-lucide="satellite" class="w-5 h-5"></i>
+					</div>
+					<h3 class="text-lg font-semibold text-slate-900 dark:text-white font-outfit">2. Satellite Sync</h3>
+					<p class="mt-3 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+						Our backend automatically queries meteorological baseline weather parameters from Open-Meteo for coordinates matches.
+					</p>
+				</div>
+
+				<!-- Step 3 -->
+				<div class="relative rounded-2xl bg-white/45 dark:bg-slate-900/40 backdrop-blur-lg border border-white/50 dark:border-slate-800/80 hover:border-emerald-500/35 dark:hover:border-emerald-500/40 shadow-[0_8px_32px_0_rgba(31,38,135,0.04)] transition-all duration-300 hover:-translate-y-1">
+					<div class="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-50 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-400 border border-indigo-500/10 dark:border-indigo-500/20 mb-6">
+						<i data-lucide="trending-up" class="w-5 h-5"></i>
+					</div>
+					<h3 class="text-lg font-semibold text-slate-900 dark:text-white font-outfit">3. Scientific Proof</h3>
+					<p class="mt-3 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+						The dashboard plots the regional baseline against forest data, creating a verifiable "Cooling Index" for donors and researchers.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Current Sites Grid Section -->
+	<section class="py-24 border-t-2 border-black dark:border-slate-800">
+		<div class="mx-auto max-w-7xl px-6 lg:px-8">
+			<div class="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-12">
+				<div>
+					<h2 class="font-outfit text-2xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white">Active Monitoring Sites</h2>
+					<p class="mt-2 text-sm sm:text-base text-slate-600 dark:text-slate-400">Tracking climate resilience parameters across regional hubs.</p>
+				</div>
+				<a href="/dashboard" class="mt-4 sm:mt-0 inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors">
+					Explore All Dashboards →
+				</a>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+				<!-- Site 1: Ranipet -->
+				<div class="rounded-2xl border border-emerald-500/20 dark:border-emerald-500/30 bg-white/50 dark:bg-slate-900/40 backdrop-blur-md p-6 flex flex-col justify-between hover:bg-white/70 dark:hover:bg-slate-900/60 hover:border-emerald-500/40 dark:hover:border-emerald-500/50 hover:shadow-[0_12px_30px_rgba(16,185,129,0.06)] transition-all duration-300">
+					<div>
+						<div class="flex items-center justify-between mb-4">
+							<span class="inline-flex items-center rounded-full bg-emerald-50 dark:bg-emerald-950/40 px-2.5 py-0.5 text-xs font-bold text-emerald-700 dark:text-emerald-400 ring-1 ring-inset ring-emerald-600/10">
+								🟢 Live Tracking
+							</span>
+							<i data-lucide="tree-deciduous" class="w-5 h-5 text-slate-400"></i>
+						</div>
+						<h3 class="font-outfit font-bold text-slate-900 dark:text-white text-lg">Greenera Farms</h3>
+						<p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Ranipet, Tamil Nadu</p>
+						<p class="text-xs text-slate-600 dark:text-slate-400 mt-4 leading-relaxed">
+							Measuring the microclimate cooling delta under a multi-tier food forest canopy compared to local regional baselines.
+						</p>
+					</div>
+					<div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800">
+						<a href="/dashboard?tab=ranipet" class="inline-flex w-full justify-center rounded-xl bg-emerald-50 dark:bg-emerald-950/40 hover:bg-emerald-100 dark:hover:bg-emerald-900/40 px-3 py-2 text-xs font-bold text-emerald-700 dark:text-emerald-400 border border-emerald-500/10 dark:border-emerald-500/20 transition-colors">
+							View Microclimate Data
+						</a>
+					</div>
+				</div>
+
+				<!-- Site 2: Nilgiris -->
+				<div class="rounded-2xl border border-slate-200/50 dark:border-slate-800/80 bg-white/45 dark:bg-slate-900/30 backdrop-blur-md p-6 flex flex-col justify-between hover:bg-white/70 dark:hover:bg-slate-900/50 hover:border-slate-300/80 dark:hover:border-slate-700 hover:shadow-[0_12px_30px_rgba(0,0,0,0.03)] transition-all duration-300 opacity-90 hover:opacity-100">
+					<div>
+						<div class="flex items-center justify-between mb-4">
+							<span class="inline-flex items-center rounded-full bg-amber-50 dark:bg-amber-950/30 px-2.5 py-0.5 text-xs font-bold text-amber-700 dark:text-amber-400 ring-1 ring-inset ring-amber-600/10">
+								🟡 Coming Soon
+							</span>
+							<i data-lucide="mountain" class="w-5 h-5 text-slate-400"></i>
+						</div>
+						<h3 class="font-outfit font-bold text-slate-900 dark:text-white text-lg">Tribal Housing</h3>
+						<p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Nilgiris, Tamil Nadu</p>
+						<p class="text-xs text-slate-600 dark:text-slate-400 mt-4 leading-relaxed">
+							Hydrological monitoring of groundwater level recharge and early warning thresholds for rainfall-induced landslide protection.
+						</p>
+					</div>
+					<div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800">
+						<a href="/dashboard?tab=water" class="inline-flex w-full justify-center rounded-xl bg-slate-50 dark:bg-slate-800/50 hover:bg-slate-100 dark:hover:bg-slate-800 px-3 py-2 text-xs font-bold text-slate-550 dark:text-slate-400 cursor-pointer transition-colors">
+							Preview Interface
+						</a>
+					</div>
+				</div>
+
+				<!-- Site 3: Kanniyakumari -->
+				<div class="rounded-2xl border border-slate-200/50 dark:border-slate-800/80 bg-white/45 dark:bg-slate-900/30 backdrop-blur-md p-6 flex flex-col justify-between hover:bg-white/70 dark:hover:bg-slate-900/50 hover:border-slate-300/80 dark:hover:border-slate-700 hover:shadow-[0_12px_30px_rgba(0,0,0,0.03)] transition-all duration-300 opacity-90 hover:opacity-100">
+					<div>
+						<div class="flex items-center justify-between mb-4">
+							<span class="inline-flex items-center rounded-full bg-amber-50 dark:bg-amber-950/30 px-2.5 py-0.5 text-xs font-bold text-amber-700 dark:text-amber-400 ring-1 ring-inset ring-amber-600/10">
+								🟡 Coming Soon
+							</span>
+							<i data-lucide="droplet" class="w-5 h-5 text-slate-400"></i>
+						</div>
+						<h3 class="font-outfit font-bold text-slate-900 dark:text-white text-lg">Aquifer Watch</h3>
+						<p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Kanniyakumari, TN</p>
+						<p class="text-xs text-slate-600 dark:text-slate-400 mt-4 leading-relaxed">
+							Weekly water-table measurements mapping seasonal groundwater depletion trends and tracking coastal saltwater boundaries.
+						</p>
+					</div>
+					<div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800">
+						<a href="/dashboard?tab=water" class="inline-flex w-full justify-center rounded-xl bg-slate-50 dark:bg-slate-800/50 hover:bg-slate-100 dark:hover:bg-slate-800 px-3 py-2 text-xs font-bold text-slate-550 dark:text-slate-400 cursor-pointer transition-colors">
+							Preview Interface
+						</a>
+					</div>
+				</div>
+
+				<!-- Site 4: SkillGrid -->
+				<div class="rounded-2xl border border-slate-200/50 dark:border-slate-800/80 bg-white/45 dark:bg-slate-900/30 backdrop-blur-md p-6 flex flex-col justify-between hover:bg-white/70 dark:hover:bg-slate-900/50 hover:border-slate-300/80 dark:hover:border-slate-700 hover:shadow-[0_12px_30px_rgba(0,0,0,0.03)] transition-all duration-300 opacity-90 hover:opacity-100">
+					<div>
+						<div class="flex items-center justify-between mb-4">
+							<span class="inline-flex items-center rounded-full bg-indigo-50 dark:bg-indigo-950/30 px-2.5 py-0.5 text-xs font-bold text-indigo-700 dark:text-indigo-400 ring-1 ring-inset ring-indigo-600/10">
+								🔵 Future Scope
+							</span>
+							<i data-lucide="briefcase" class="w-5 h-5 text-slate-400"></i>
+						</div>
+						<h3 class="font-outfit font-bold text-slate-900 dark:text-white text-lg">SkillGrid Global</h3>
+						<p class="text-xs text-slate-505 dark:text-slate-400 mt-0.5">Livelihood & Skilling</p>
+						<p class="text-xs text-slate-600 dark:text-slate-400 mt-4 leading-relaxed">
+							Centralized skilling engine. Includes structured resume parsing interfaces and SCORM course completions dashboards.
+						</p>
+					</div>
+					<div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800">
+						<a href="/dashboard?tab=skillgrid" class="inline-flex w-full justify-center rounded-xl bg-slate-50 dark:bg-slate-800/50 hover:bg-slate-100 dark:hover:bg-slate-800 px-3 py-2 text-xs font-bold text-slate-550 dark:text-slate-400 cursor-pointer transition-colors">
+							Preview Dashboard
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>

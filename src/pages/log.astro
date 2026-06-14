@@ -1,0 +1,299 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+	<section class="mx-auto max-w-md px-4 py-12 sm:px-6 lg:px-8">
+		<!-- Main Card -->
+		<div class="rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-white/90 dark:bg-slate-900/95 backdrop-blur-md p-6 sm:p-8 shadow-xl">
+			<!-- Header -->
+			<div class="text-center mb-8">
+				<span class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 border border-emerald-500/10 dark:border-emerald-500/20 mb-4">
+					<i data-lucide="file-text" class="w-5 h-5"></i>
+				</span>
+				<h1 class="font-outfit text-2xl font-extrabold text-slate-900 dark:text-white">Volunteer Field Logging</h1>
+				<p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+					Optimized for high-contrast viewing on mobile devices in open sunlight. Select your site to log data.
+				</p>
+			</div>
+
+			<div class="grid grid-cols-2 gap-2 rounded-xl bg-slate-100 dark:bg-slate-950 p-1 mb-8 border border-slate-200/60 dark:border-slate-800/80">
+				<button id="btn-ranipet" class="rounded-lg py-2.5 text-xs font-bold text-emerald-700 dark:text-emerald-450 bg-white dark:bg-slate-900 border border-emerald-500/10 dark:border-emerald-500/20 shadow-xs transition-all focus:outline-none flex items-center justify-center gap-1.5 cursor-pointer">
+					<i data-lucide="tree-deciduous" class="w-3.5 h-3.5"></i>
+					Ranipet Farm
+				</button>
+				<button id="btn-water" class="rounded-lg py-2.5 text-xs font-bold text-slate-550 dark:text-slate-400 transition-all hover:text-slate-700 dark:hover:text-slate-200 focus:outline-none flex items-center justify-center gap-1.5 cursor-pointer">
+					<i data-lucide="droplet" class="w-3.5 h-3.5"></i>
+					Well & Water
+				</button>
+			</div>
+
+			<!-- Form 1: Ranipet Food Forest -->
+			<form id="form-ranipet" class="space-y-6" onsubmit="event.preventDefault(); handleLogSubmit('ranipet');">
+				<div>
+					<label for="ranipet-temp" class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-2">
+						Forest Canopy Temperature (°C)
+					</label>
+					<div class="relative rounded-2xl shadow-xs">
+						<input 
+							type="number" 
+							step="0.1" 
+							name="forest_temp" 							id="ranipet-temp" 
+							required
+							placeholder="32.5" 
+							class="block w-full rounded-2xl border-0 bg-slate-50 dark:bg-slate-950 py-4 pl-4 pr-12 text-lg font-semibold text-slate-900 dark:text-white ring-1 ring-inset ring-slate-200 dark:ring-slate-800 placeholder:text-slate-400 dark:placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-emerald-500 focus:outline-none shadow-inner"
+						/>
+						<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-4">
+							<span class="text-sm font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 px-2 py-0.5 rounded-md">°C</span>
+						</div>
+					</div>
+					<p class="mt-2 text-[10px] text-slate-500 dark:text-slate-400">Read from the thermometer hanging under the food forest shade canopy.</p>
+				</div>
+
+				<div>
+					<label for="ranipet-obs" class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-2">
+						Observations / Notes
+					</label>
+					<textarea 
+						name="observations" 
+						id="ranipet-obs" 
+						rows="3" 
+						placeholder="Soil moisture levels are high; canopy looking dense..." 
+						class="block w-full rounded-2xl border-0 bg-slate-50 dark:bg-slate-950 p-4 text-sm text-slate-900 dark:text-white ring-1 ring-inset ring-slate-200 dark:ring-slate-800 placeholder:text-slate-400 dark:placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-emerald-500 focus:outline-none shadow-inner"
+					></textarea>
+				</div>
+
+				<div>
+					<label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-2">Logged By</label>
+					<input 
+						type="text" 
+						value="volunteer_ranipet" 
+						disabled 
+						class="block w-full rounded-2xl border-0 bg-slate-100/65 dark:bg-slate-950/40 p-4 text-xs font-semibold text-slate-400 dark:text-slate-500 ring-1 ring-inset ring-slate-200 dark:ring-slate-800 select-none cursor-not-allowed"
+					/>
+				</div>
+
+				<button 
+					type="submit" 
+					class="w-full flex justify-center items-center gap-2 rounded-2xl bg-linear-to-r from-emerald-500 to-teal-400 py-4 text-sm font-bold text-slate-950 shadow-[0_4px_15px_rgba(16,185,129,0.2)] hover:brightness-110 active:scale-98 transition-all cursor-pointer"
+				>
+					<i data-lucide="zap" class="w-4 h-4"></i>
+					Submit Reading & Sync
+				</button>
+			</form>
+
+			<!-- Form 2: Water Tracker (Nilgiris/Kanniyakumari) -->
+			<form id="form-water" class="space-y-6 hidden" onsubmit="event.preventDefault(); handleLogSubmit('water');">
+				<div>
+					<label for="water-location" class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-2">
+						Monitoring Site
+					</label>
+					<select 
+						id="water-location" 
+						name="location" 
+						class="block w-full rounded-2xl border-0 bg-slate-50 dark:bg-slate-950 p-4 text-sm text-slate-900 dark:text-white ring-1 ring-inset ring-slate-200 dark:ring-slate-800 focus:ring-2 focus:ring-inset focus:ring-emerald-500 focus:outline-none appearance-none cursor-pointer shadow-xs"
+					>
+						<option class="text-slate-900 dark:text-white dark:bg-slate-950" value="nilgiris">Nilgiris Tribal Settlement (Well #4)</option>
+						<option class="text-slate-900 dark:text-white dark:bg-slate-950" value="kanniyakumari">Kanniyakumari Aquifer Monitoring (Well #2)</option>
+					</select>
+				</div>
+
+				<div>
+					<label for="water-depth" class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-2">
+						Depth to Water Level (m)
+					</label>
+					<div class="relative rounded-2xl shadow-xs">
+						<input 
+							type="number" 
+							step="0.01" 
+							name="well_depth" 
+							id="water-depth" 
+							required
+							placeholder="8.42" 
+							class="block w-full rounded-2xl border-0 bg-slate-50 dark:bg-slate-950 py-4 pl-4 pr-12 text-lg font-semibold text-slate-900 dark:text-white ring-1 ring-inset ring-slate-200 dark:ring-slate-800 placeholder:text-slate-400 dark:placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-emerald-500 focus:outline-none shadow-inner"
+						/>
+						<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-4">
+							<span class="text-sm font-bold text-emerald-700 dark:text-emerald-450 bg-emerald-50 dark:bg-emerald-950/40 px-2 py-0.5 rounded-md">m</span>
+						</div>
+					</div>
+					<p class="mt-2 text-[10px] text-slate-505 dark:text-slate-400">Measure manually with weighted tape from the well mouth reference point.</p>
+				</div>
+
+				<div>
+					<label for="water-rain" class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-2">
+						Rainfall in Last 24 Hours (mm)
+					</label>
+					<div class="relative rounded-2xl shadow-xs">
+						<input 
+							type="number" 
+							step="0.1" 
+							name="rainfall_mm" 
+							id="water-rain" 
+							required
+							placeholder="12.5" 
+							class="block w-full rounded-2xl border-0 bg-slate-50 dark:bg-slate-950 py-4 pl-4 pr-12 text-lg font-semibold text-slate-900 dark:text-white ring-1 ring-inset ring-slate-200 dark:ring-slate-800 placeholder:text-slate-400 dark:placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-emerald-500 focus:outline-none shadow-inner"
+						/>
+						<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-4">
+							<span class="text-sm font-bold text-blue-700 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/40 px-2 py-0.5 rounded-md">mm</span>
+						</div>
+					</div>
+				</div>
+
+				<div>
+					<label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-2">Logged By</label>
+					<input 
+						type="text" 
+						value="volunteer_water" 
+						disabled 
+						class="block w-full rounded-2xl border-0 bg-slate-100/65 dark:bg-slate-950/40 p-4 text-xs font-semibold text-slate-400 dark:text-slate-500 ring-1 ring-inset ring-slate-200 dark:ring-slate-800 select-none cursor-not-allowed"
+					/>
+				</div>
+
+				<button 
+					type="submit" 
+					class="w-full flex justify-center items-center gap-2 rounded-2xl bg-linear-to-r from-emerald-500 to-teal-400 py-4 text-sm font-bold text-slate-950 shadow-[0_4px_15px_rgba(16,185,129,0.2)] hover:brightness-110 active:scale-98 transition-all cursor-pointer"
+				>
+					<i data-lucide="zap" class="w-4 h-4"></i>
+					Submit Log & Sync
+				</button>
+			</form>
+		</div>
+
+		<!-- Success Modal Overlay (Mock Sync) -->
+		<div id="success-overlay" class="fixed inset-0 z-50 bg-slate-900/60 dark:bg-slate-950/80 backdrop-blur-xs p-4 hidden">
+			<div class="w-full max-w-sm rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-2xl text-center">
+				<div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 border border-emerald-500/10 dark:border-emerald-500/20 mb-4 animate-bounce">
+					<i data-lucide="check" class="w-6 h-6"></i>
+				</div>
+				<h3 class="font-outfit text-xl font-bold text-slate-900 dark:text-white">Log Synced Successfully!</h3>
+				<p class="text-xs text-slate-505 dark:text-slate-400 mt-2 leading-relaxed">
+					Your entry has been processed and matched with the Open-Meteo satellite coordinates weather models.
+				</p>
+
+				<!-- Mock Results Table -->
+				<div class="my-6 rounded-2xl bg-slate-50 dark:bg-slate-950 p-4 border border-slate-100 dark:border-slate-800 text-left space-y-3 shadow-inner">
+					<div class="flex justify-between items-center text-xs">
+						<span class="text-slate-500 dark:text-slate-400">Logged Value:</span>
+						<span id="mock-logged-val" class="font-bold text-slate-850 dark:text-slate-200">32.5°C</span>
+					</div>
+					<div class="flex justify-between items-center text-xs">
+						<span class="text-slate-500 dark:text-slate-400">API Baseline Temp:</span>
+						<span id="mock-api-val" class="font-bold text-emerald-600 dark:text-emerald-450">37.8°C (Barren)</span>
+					</div>
+					<div class="flex justify-between items-center text-xs pt-2 border-t border-slate-200/60 dark:border-slate-800">
+						<span class="text-slate-550 dark:text-slate-400 font-medium">Calculated Cooling Index:</span>
+						<span id="mock-index-val" class="font-bold text-teal-600 dark:text-teal-400">-5.3°C</span>
+					</div>
+				</div>
+
+				<button 
+					onclick="closeSuccessModal()"
+					class="w-full rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 py-3 text-xs font-bold text-slate-700 dark:text-slate-350 transition-colors cursor-pointer"
+				>
+					Dismiss Log Screen
+				</button>
+			</div>
+		</div>
+	</section>
+
+	<script is:inline>
+		// Tab Switching Logic
+		const btnRanipet = document.getElementById('btn-ranipet');
+		const btnWater = document.getElementById('btn-water');
+		const formRanipet = document.getElementById('form-ranipet');
+		const formWater = document.getElementById('form-water');
+
+		btnRanipet.addEventListener('click', () => {
+			btnRanipet.className = "rounded-lg py-2.5 text-xs font-bold text-emerald-700 dark:text-emerald-450 bg-white dark:bg-slate-900 border border-emerald-500/10 dark:border-emerald-500/20 shadow-xs transition-all focus:outline-none flex items-center justify-center gap-1.5 cursor-pointer";
+			btnWater.className = "rounded-lg py-2.5 text-xs font-bold text-slate-550 dark:text-slate-400 transition-all hover:text-slate-700 dark:hover:text-slate-200 focus:outline-none flex items-center justify-center gap-1.5 cursor-pointer";
+			formRanipet.classList.remove('hidden');
+			formWater.classList.add('hidden');
+		});
+
+		btnWater.addEventListener('click', () => {
+			btnWater.className = "rounded-lg py-2.5 text-xs font-bold text-emerald-700 dark:text-emerald-450 bg-white dark:bg-slate-900 border border-emerald-500/10 dark:border-emerald-500/20 shadow-xs transition-all focus:outline-none flex items-center justify-center gap-1.5 cursor-pointer";
+			btnRanipet.className = "rounded-lg py-2.5 text-xs font-bold text-slate-550 dark:text-slate-400 transition-all hover:text-slate-700 dark:hover:text-slate-200 focus:outline-none flex items-center justify-center gap-1.5 cursor-pointer";
+			formWater.classList.remove('hidden');
+			formRanipet.classList.add('hidden');
+		});
+
+		// Success Overlay Mock Log Submission Handler
+		async function handleLogSubmit(type) {
+			const overlay = document.getElementById('success-overlay');
+			const loggedValElem = document.getElementById('mock-logged-val');
+			const apiValElem = document.getElementById('mock-api-val');
+			const indexValElem = document.getElementById('mock-index-val');
+
+			if (type === 'ranipet') {
+				const temp = parseFloat(document.getElementById('ranipet-temp').value) || 32.5;
+				
+				let barrenTemp = temp + 5.2;
+				let normalTemp = temp + 2.6;
+				// Fetch real regional baseline coordinates values
+				try {
+					const res = await fetch('http://127.0.0.1:8000/api/weather');
+					if(res.ok) {
+						const data = await res.json();
+						if(data.barren && data.barren.temperature_2m) barrenTemp = data.barren.temperature_2m;
+						if(data.normal && data.normal.temperature_2m) normalTemp = data.normal.temperature_2m;
+					}
+				} catch(e) { console.error("Failed to fetch live baseline", e); }
+
+				// Post data to our FastAPI backend with all 3 sites
+				try {
+					await fetch('http://127.0.0.1:8000/api/readings', {
+						method: 'POST',
+						headers: { 'Content-Type': 'application/json' },
+						body: JSON.stringify({
+							forest_temp: temp,
+							barren_temp: barrenTemp,
+							normal_temp: normalTemp,
+							logged_by: 'volunteer_ranipet'
+						})
+					});
+				} catch(e) { console.error("Failed to post reading", e); }
+
+				const coolingIndex = (barrenTemp - temp).toFixed(1);
+
+				loggedValElem.textContent = `${temp.toFixed(1)}°C`;
+				apiValElem.textContent = `${barrenTemp.toFixed(1)}°C (Barren)`;
+				indexValElem.textContent = `-${coolingIndex}°C Cooler`;
+				indexValElem.className = "font-bold text-emerald-700 dark:text-emerald-400";
+			} else {
+				const depth = parseFloat(document.getElementById('water-depth').value) || 8.42;
+				const rain = parseFloat(document.getElementById('water-rain').value) || 12.5;
+
+				try {
+					await fetch('http://127.0.0.1:8000/api/waterlogs', {
+						method: 'POST',
+						headers: { 'Content-Type': 'application/json' },
+						body: JSON.stringify({
+							well_depth_m: depth,
+							rainfall_mm: rain,
+							logged_by: 'volunteer_water'
+						})
+					});
+				} catch(e) { console.error("Failed to post waterlog", e); }
+
+				loggedValElem.textContent = `${depth.toFixed(2)}m (Water Depth)`;
+				apiValElem.textContent = `${rain.toFixed(1)}mm (24hr Rain)`;
+				indexValElem.textContent = "Safe: Normal";
+				indexValElem.className = "font-bold text-blue-400 dark:text-blue-300";
+			}
+
+			overlay.classList.remove('hidden');
+			overlay.classList.add('flex', 'items-center', 'justify-center');
+		}
+
+		function closeSuccessModal() {
+			const overlay = document.getElementById('success-overlay');
+			overlay.classList.add('hidden');
+			overlay.classList.remove('flex', 'items-center', 'justify-center');
+			// Reset inputs
+			document.getElementById('ranipet-temp').value = '';
+			document.getElementById('ranipet-obs').value = '';
+			document.getElementById('water-depth').value = '';
+			document.getElementById('water-rain').value = '';
+		}
+	</script>
+</Layout>

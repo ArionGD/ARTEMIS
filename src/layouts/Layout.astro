@@ -1,0 +1,98 @@
+---
+import '../styles/global.css';
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+---
+<!doctype html>
+<html lang="en" class="scroll-smooth overscroll-none">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link class="js-favicon" rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link class="js-favicon" rel="icon" href="/favicon.ico" />
+		<meta name="generator" content={Astro.generator} />
+		<title>ARTEMIS — Ecological Mapping & Action Super-App</title>
+		<!-- Google Fonts for premium typography -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Syne:wght@800&display=swap" rel="stylesheet">
+		
+		<!-- Chart.js for lightweight high-performance rendering -->
+		<script src="https://cdn.jsdelivr.net/npm/chart.js" is:inline></script>
+		<!-- Lenis Smooth Scrolling CDN -->
+		<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.5/dist/lenis.min.js" is:inline></script>
+		<!-- Lucide Icons CDN -->
+		<script src="https://unpkg.com/lucide@latest" is:inline></script>
+		<script is:inline>
+			// Set theme early to avoid FOUC
+			const theme = localStorage.getItem('theme') || 'light';
+			if (theme === 'dark') {
+				document.documentElement.classList.add('dark');
+			} else {
+				document.documentElement.classList.remove('dark');
+			}
+
+			// Instantly trigger icon replacement on DOM load
+			document.addEventListener('DOMContentLoaded', () => {
+				if (typeof lucide !== 'undefined') {
+					lucide.createIcons();
+				}
+			});
+		</script>
+	</head>
+	<body class="bg-[#fbfbfb] text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans min-h-screen selection:bg-emerald-500/10 selection:text-emerald-800 antialiased overflow-x-hidden flex flex-col overscroll-none transition-colors duration-300">
+		<!-- Modular Header -->
+		<Header />
+
+		<!-- Main Page Slot -->
+		<main class="grow">
+			<slot />
+		</main>
+
+		<!-- Modular Footer -->
+		<Footer />
+		
+		<!-- Initialize HTMX & Lenis globally for all pages using this layout -->
+		<script>
+			import 'htmx.org';
+			
+			// Initialize Lenis Smooth Scroll
+			// @ts-ignore
+			const lenis = new Lenis({
+				duration: 1.2,
+				easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+				wheelMultiplier: 1.0,
+				infinite: false,
+			});
+
+			function raf(time: number) {
+				lenis.raf(time);
+				requestAnimationFrame(raf);
+			}
+
+			requestAnimationFrame(raf);
+		</script>
+
+		<!-- Lenis CSS styling rules -->
+		<style is:global>
+			html {
+				overscroll-behavior: none;
+			}
+			html.lenis, html.lenis body {
+				height: auto;
+			}
+			.lenis-smooth {
+				scroll-behavior: auto !important;
+			}
+			.lenis-smooth [data-lenis-prevent] {
+				overscroll-behavior: contain;
+			}
+			.lenis-stopped {
+				overflow: hidden;
+			}
+			.lenis-scrolling iframe {
+				pointer-events: none;
+			}
+		</style>
+	</body>
+</html>

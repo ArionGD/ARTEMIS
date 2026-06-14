@@ -1,0 +1,105 @@
+---
+import logoImg from '../assets/logo.jpg';
+---
+<!-- Premium Dynamic Floating Header -->
+<header id="main-header" class="sticky top-0 z-50 w-full transition-all duration-500 py-0">
+	<div id="nav-container" class="mx-auto w-full max-w-full bg-white/60 dark:bg-black/60 border-b border-slate-200/40 dark:border-slate-800/40 backdrop-blur-md px-6 sm:px-10 lg:px-16 transition-all duration-500 h-20 flex items-center justify-between">
+		<!-- Logo (Image + Smooth Name) -->
+		<div class="flex items-center gap-3">
+			<a href="/" class="flex items-center gap-2 group">
+				<img src={logoImg.src} alt="Artemis Logo" class="h-8 w-8 rounded-lg object-contain bg-white border border-slate-100/80 shadow-xs" />
+				<span class="font-outfit text-xl font-semibold tracking-wide text-[#2b5a9e] dark:text-[#60a5fa] group-hover:text-[#1e40af] dark:group-hover:text-[#93c5fd] transition-colors duration-200">
+					Artemis
+				</span>
+			</a>
+		</div>
+
+		<!-- Navigation Link Menu with Black/White Lucide Icons -->
+		<nav class="hidden md:flex items-center gap-6">
+			<a href="/" class="group flex items-center gap-2 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors duration-200">
+				<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white transition-colors duration-200"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+				Home
+			</a>
+			<a href="/dashboard" class="group flex items-center gap-2 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors duration-200">
+				<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white transition-colors duration-200"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="10" rx="1"/><rect width="7" height="5" x="3" y="14" rx="1"/></svg>
+				Impact Dashboard
+			</a>
+			<a href="/log" class="group flex items-center gap-2 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors duration-200">
+				<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white transition-colors duration-200"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M9 12h6"/><path d="M9 16h6"/><path d="M9 8h6"/></svg>
+				Volunteer Entry Log
+				<span class="relative flex h-2 w-2 ml-1">
+					<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+					<span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+				</span>
+			</a>
+		</nav>
+
+		<!-- Action Buttons -->
+		<div class="flex items-center gap-4">
+			<!-- Theme Toggle Button -->
+			<button id="theme-toggle" class="flex h-9 w-9 items-center justify-center rounded-full bg-black text-white border border-slate-900/60 hover:bg-slate-950 hover:scale-105 transition-all duration-200 focus:outline-none cursor-pointer" aria-label="Toggle Theme">
+				<!-- Moon icon for dark mode -->
+				<svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon hidden"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+				<!-- Sun icon for light mode -->
+				<svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+			</button>
+			<a href="/dashboard" class="inline-flex items-center rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white dark:bg-white dark:hover:bg-slate-100 dark:text-slate-950 px-4 py-2.5 text-xs font-bold active:scale-98 transition-all shadow-[0_4px_12px_rgba(16,185,129,0.2)] dark:shadow-none">
+				View Dashboard
+			</a>
+		</div>
+	</div>
+</header>
+
+<script is:inline>
+	const mainHeader = document.getElementById('main-header');
+	const navContainer = document.getElementById('nav-container');
+
+	function handleScroll() {
+		if (window.scrollY > 20) {
+			// Scrolled style (floating pill shape) - more glassmorphic and translucent
+			mainHeader.className = "sticky top-4 z-50 w-full transition-all duration-500 py-2";
+			navContainer.className = "mx-auto w-[92%] max-w-7xl bg-white/40 dark:bg-black/40 border border-white/40 dark:border-white/10 rounded-full px-10 shadow-[0_8px_32px_0_rgba(31,38,135,0.06)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] backdrop-blur-lg transition-all duration-500 h-16 flex items-center justify-between";
+		} else {
+			// Top style (full-width border-b) - translucent glassmorphic
+			mainHeader.className = "sticky top-0 z-50 w-full transition-all duration-500 py-0";
+			navContainer.className = "mx-auto w-full max-w-full bg-white/60 dark:bg-black/60 border-b border-slate-200/30 dark:border-slate-800/40 shadow-[0_2px_20px_0_rgba(31,38,135,0.02)] backdrop-blur-md px-6 sm:px-10 lg:px-16 transition-all duration-500 h-20 flex items-center justify-between";
+		}
+	}
+
+	window.addEventListener('scroll', handleScroll);
+	
+	// Run immediately as elements are already parsed in the DOM above this script
+	handleScroll();
+
+	// Theme toggle logic
+	const themeToggleBtn = document.getElementById('theme-toggle');
+	const moonIcon = document.getElementById('theme-icon-moon');
+	const sunIcon = document.getElementById('theme-icon-sun');
+
+	if (themeToggleBtn) {
+		// Set initial state based on classlist
+		if (document.documentElement.classList.contains('dark')) {
+			sunIcon.classList.add('hidden');
+			moonIcon.classList.remove('hidden');
+		} else {
+			moonIcon.classList.add('hidden');
+			sunIcon.classList.remove('hidden');
+		}
+
+		themeToggleBtn.addEventListener('click', () => {
+			const isDark = document.documentElement.classList.toggle('dark');
+			localStorage.setItem('theme', isDark ? 'dark' : 'light');
+			
+			// Dispatch a custom event to notify charts to redraw!
+			window.dispatchEvent(new CustomEvent('theme-changed', { detail: { isDark } }));
+
+			if (isDark) {
+				sunIcon.classList.add('hidden');
+				moonIcon.classList.remove('hidden');
+			} else {
+				moonIcon.classList.add('hidden');
+				sunIcon.classList.remove('hidden');
+			}
+		});
+	}
+</script>
