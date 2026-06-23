@@ -178,7 +178,7 @@ import Layout from '../layouts/Layout.astro';
 					</div>
 					<div class="flex justify-between items-center text-xs">
 						<span class="text-slate-500 dark:text-slate-400">API Baseline Temp:</span>
-						<span id="mock-api-val" class="font-bold text-emerald-600 dark:text-emerald-450">37.8°C (Barren)</span>
+						<span id="mock-api-val" class="font-bold text-emerald-600 dark:text-emerald-450">37.8°C (Open Area)</span>
 					</div>
 					<div class="flex justify-between items-center text-xs pt-2 border-t border-slate-200/60 dark:border-slate-800">
 						<span class="text-slate-550 dark:text-slate-400 font-medium">Calculated Cooling Index:</span>
@@ -256,7 +256,7 @@ import Layout from '../layouts/Layout.astro';
 				const coolingIndex = (barrenTemp - temp).toFixed(1);
 
 				loggedValElem.textContent = `${temp.toFixed(1)}°C`;
-				apiValElem.textContent = `${barrenTemp.toFixed(1)}°C (Barren)`;
+				apiValElem.textContent = `${barrenTemp.toFixed(1)}°C (Open Area)`;
 				indexValElem.textContent = `-${coolingIndex}°C Cooler`;
 				indexValElem.className = "font-bold text-emerald-700 dark:text-emerald-400";
 			} else {

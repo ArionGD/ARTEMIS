@@ -4,6 +4,20 @@ import Layout from '../../layouts/Layout.astro';
 
 <Layout>
 	<section class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+		<!-- SEA Movement Introduction Card -->
+		<div class="mb-12 rounded-3xl bg-linear-to-r from-emerald-500/5 to-teal-500/5 dark:from-emerald-500/5 dark:to-teal-500/5 border border-emerald-500/10 dark:border-slate-800 p-6 sm:p-8 flex flex-col md:flex-row items-center gap-6 shadow-xs">
+			<div class="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border border-emerald-500/10">
+				<i data-lucide="info" class="w-8 h-8"></i>
+			</div>
+			<div>
+				<h2 class="font-outfit text-lg font-bold text-slate-900 dark:text-white mb-2">About SEA Movement & Project ARTEMIS</h2>
+				<p class="text-xs text-slate-650 dark:text-slate-450 leading-relaxed">
+					<strong>SEA Movement</strong> is a Chennai-based environmental non-profit trust registered in October 2008. We focus on grassroots sustainability, sustainable organic agriculture, mapping water resources, and improving rural livelihoods. 
+					This dashboard tracks key ecological indicators (like temperature cooling and water well levels) at our project sites in Ranipet, Nilgiris, and Kanniyakumari, alongside candidates in our SkillGrid skilling program.
+				</p>
+			</div>
+		</div>
+
 		<!-- Page Header -->
 		<div class="mb-10 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
 			<div>
@@ -39,10 +53,10 @@ import Layout from '../../layouts/Layout.astro';
 						Calculated Cooling Index
 					</span>
 					<h2 id="cooling-index-headline" class="font-outfit text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
-						-5.2°C Cooler Than Barren Land
+						-5.2°C Cooler Than Open Areas
 					</h2>
 					<p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">
-						Greenera Food Forest demonstrates significant microclimate cooling compared to nearby barren lands and standard farms.
+						Greenera Food Forest demonstrates significant microclimate cooling compared to nearby open fields and standard farms.
 					</p>
 				</div>
 				<div class="flex items-center gap-4 bg-white dark:bg-slate-900 px-6 py-4 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
@@ -199,7 +213,7 @@ import Layout from '../../layouts/Layout.astro';
 					<!-- Short Infiltration Rate details -->
 					<div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex justify-between items-center text-xs">
 						<span class="text-slate-500 dark:text-slate-400">Soil Infiltration Rate:</span>
-						<span class="font-bold text-emerald-700 dark:text-emerald-450 font-outfit">85 mm/hr (Canopy) vs 8 mm/hr (Barren)</span>
+						<span class="font-bold text-emerald-700 dark:text-emerald-450 font-outfit">85 mm/hr (Canopy) vs 8 mm/hr (Open Area)</span>
 					</div>
 				</div>
 			</div>
@@ -552,7 +566,7 @@ import Layout from '../../layouts/Layout.astro';
 						const coolingIndexHeadline = document.getElementById('cooling-index-headline');
 						const coolingVsNormal = document.getElementById('cooling-vs-normal');
 						if(coolingIndexHeadline) {
-							coolingIndexHeadline.innerText = `-${latest.cooling_index_barren}°C Cooler Than Barren Land`;
+							coolingIndexHeadline.innerText = `-${latest.cooling_index_barren}°C Cooler Than Open Areas`;
 						}
 						if(coolingVsNormal) {
 							coolingVsNormal.innerText = `-${latest.cooling_index_normal}°C`;
@@ -622,7 +636,7 @@ import Layout from '../../layouts/Layout.astro';
 				data: {
 					labels: labels,
 					datasets: [
-						{ label: '🏜️ Barren Land', data: barren, borderColor: 'rgba(239, 68, 68, 0.85)', backgroundColor: 'transparent', borderWidth: 2, borderDash: [5, 5], tension: 0.3, pointRadius: 2 },
+						{ label: '🏜️ Open Area', data: barren, borderColor: 'rgba(239, 68, 68, 0.85)', backgroundColor: 'transparent', borderWidth: 2, borderDash: [5, 5], tension: 0.3, pointRadius: 2 },
 						{ label: '🌾 Normal Farm', data: normal, borderColor: 'rgba(245, 158, 11, 0.85)', backgroundColor: 'transparent', borderWidth: 2, tension: 0.3, pointRadius: 2 },
 						{ label: '🌳 Food Forest', data: forest, borderColor: 'rgba(16, 185, 129, 0.85)', backgroundColor: 'rgba(16, 185, 129, 0.05)', borderWidth: 3.5, tension: 0.3, pointRadius: 3, fill: true }
 					]
@@ -639,7 +653,7 @@ import Layout from '../../layouts/Layout.astro';
 				data: {
 					labels: labels,
 					datasets: [
-						{ label: '🏜️ Barren Land', data: barren, borderColor: 'rgba(239, 68, 68, 0.85)', backgroundColor: 'transparent', borderWidth: 2, borderDash: [5, 5], tension: 0.3, pointRadius: 2 },
+						{ label: '🏜️ Open Area', data: barren, borderColor: 'rgba(239, 68, 68, 0.85)', backgroundColor: 'transparent', borderWidth: 2, borderDash: [5, 5], tension: 0.3, pointRadius: 2 },
 						{ label: '🌾 Normal Farm', data: normal, borderColor: 'rgba(245, 158, 11, 0.85)', backgroundColor: 'transparent', borderWidth: 2, tension: 0.3, pointRadius: 2 },
 						{ label: '🌳 Food Forest', data: forest, borderColor: 'rgba(20, 184, 166, 0.85)', backgroundColor: 'rgba(20, 184, 166, 0.05)', borderWidth: 3.5, tension: 0.3, pointRadius: 3, fill: true }
 					]
@@ -656,7 +670,7 @@ import Layout from '../../layouts/Layout.astro';
 				data: {
 					labels: labels,
 					datasets: [
-						{ label: '🏜️ Barren Land', data: barren, borderColor: 'rgba(239, 68, 68, 0.85)', backgroundColor: 'transparent', borderWidth: 2, borderDash: [5, 5], tension: 0.3, pointRadius: 2 },
+						{ label: '🏜️ Open Area', data: barren, borderColor: 'rgba(239, 68, 68, 0.85)', backgroundColor: 'transparent', borderWidth: 2, borderDash: [5, 5], tension: 0.3, pointRadius: 2 },
 						{ label: '🌾 Normal Farm', data: normal, borderColor: 'rgba(245, 158, 11, 0.85)', backgroundColor: 'transparent', borderWidth: 2, tension: 0.3, pointRadius: 2 },
 						{ label: '🌳 Food Forest', data: forest, borderColor: 'rgba(99, 102, 241, 0.85)', backgroundColor: 'rgba(99, 102, 241, 0.05)', borderWidth: 3.5, tension: 0.3, pointRadius: 3, fill: true }
 					]
@@ -673,7 +687,7 @@ import Layout from '../../layouts/Layout.astro';
 				data: {
 					labels: labels,
 					datasets: [
-						{ label: '🏜️ Barren Land', data: barren, borderColor: 'rgba(239, 68, 68, 0.85)', backgroundColor: 'transparent', borderWidth: 2, borderDash: [5, 5], tension: 0.3, pointRadius: 2 },
+						{ label: '🏜️ Open Area', data: barren, borderColor: 'rgba(239, 68, 68, 0.85)', backgroundColor: 'transparent', borderWidth: 2, borderDash: [5, 5], tension: 0.3, pointRadius: 2 },
 						{ label: '🌾 Normal Farm', data: normal, borderColor: 'rgba(245, 158, 11, 0.85)', backgroundColor: 'transparent', borderWidth: 2, tension: 0.3, pointRadius: 2 },
 						{ label: '🌳 Food Forest', data: forest, borderColor: 'rgba(245, 158, 11, 0.85)', backgroundColor: 'rgba(245, 158, 11, 0.05)', borderWidth: 3.5, tension: 0.3, pointRadius: 3, fill: true }
 					]
