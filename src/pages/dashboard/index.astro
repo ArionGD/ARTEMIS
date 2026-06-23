@@ -128,6 +128,48 @@ import Layout from '../../layouts/Layout.astro';
 					</div>
 				</div>
 			</div>
+
+			<!-- Detailed Ranipet Forestry Reports -->
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+				<!-- Canopy Shading Report -->
+				<div class="md:col-span-2 rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900/40 p-6 space-y-4 shadow-xs">
+					<h4 class="font-outfit text-base font-bold text-slate-900 dark:text-white">Canopy Shading & Thermal Comfort Analysis</h4>
+					<p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+						The Greenera farm utilizes a 3-tier dense forestry layout: an upper overstory of *Tamarind* and *Neem* (blocking 65% of solar radiation), a middle layer of *Moringa* and *Papaya* (acting as a wind and humidity buffer), and a dense ground cover of nitrogen-fixing legumes.
+					</p>
+					<p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+						This combination reduces the *Sensible Heat Flux* (dry air warming) and replaces it with *Latent Heat Flux* (vaporization cooling). Transpiration from mature canopy leaves releases up to 120 liters of water vapor per tree per day, active as a natural evaporative cooling unit.
+					</p>
+				</div>
+				<!-- Soil infiltration table -->
+				<div class="rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900/40 p-6 space-y-4 shadow-xs">
+					<h4 class="font-outfit text-base font-bold text-slate-900 dark:text-white">Infiltration Rates</h4>
+					<div class="overflow-x-auto">
+						<table class="w-full text-left text-xs border-collapse">
+							<thead>
+								<tr class="border-b border-slate-200 dark:border-slate-800 text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400">
+									<th class="pb-2">Zone</th>
+									<th class="pb-2 text-right">Infiltration (mm/hr)</th>
+								</tr>
+							</thead>
+							<tbody class="divide-y divide-slate-100 dark:divide-slate-800 text-slate-650 dark:text-slate-355">
+								<tr>
+									<td class="py-2">🌳 Food Forest (Canopy)</td>
+									<td class="py-2 text-right font-bold text-emerald-600 dark:text-emerald-400 font-outfit">85 mm/hr</td>
+								</tr>
+								<tr>
+									<td class="py-2">🌾 Monoculture Farm</td>
+									<td class="py-2 text-right">32 mm/hr</td>
+								</tr>
+								<tr>
+									<td class="py-2">🏜️ Barren Topsoil</td>
+									<td class="py-2 text-right text-red-500">8 mm/hr</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
 		</div>
 
 		<!-- CONTENT SECTION 2: GROUNDWATER & LANDSLIDE MONITOR -->
@@ -176,11 +218,73 @@ import Layout from '../../layouts/Layout.astro';
 			</div>
 
 			<!-- Hydrology Insights -->
-			<div class="rounded-3xl border border-slate-200 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-900/60 p-6">
+			<div class="rounded-3xl border border-slate-200 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-900/60 p-6 shadow-xs">
 				<h3 class="font-outfit text-sm font-bold text-slate-900 dark:text-white mb-4">Understanding Groundwater Infiltration</h3>
 				<p class="text-xs text-slate-655 dark:text-slate-400 leading-relaxed max-w-4xl">
 					By logging groundwater water depth from regional reference points alongside precipitations values, we map the **Aquifer Recharge Rate**. A rising water table (smaller depth-to-water numbers) following rains confirms soil absorption. Flat lines signify high runoff levels, warning of landslide potential.
 				</p>
+			</div>
+
+			<!-- Detailed Hydrological Reports & Landslide Matrix -->
+			<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+				<!-- Landslide Threshold Warning Matrix Table -->
+				<div class="lg:col-span-2 rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900/40 p-6 space-y-4 shadow-xs">
+					<h4 class="font-outfit text-base font-bold text-slate-900 dark:text-white">Landslide Threshold Warning Matrix (Nilgiris)</h4>
+					<div class="overflow-x-auto">
+						<table class="w-full text-left text-xs border-collapse">
+							<thead>
+								<tr class="border-b border-slate-200 dark:border-slate-800 text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400">
+									<th class="pb-3 pl-2">Warning Level</th>
+									<th class="pb-3">3-Day Cum. Rain</th>
+									<th class="pb-3">Soil Moisture Saturation</th>
+									<th class="pb-3">Action Protocol</th>
+								</tr>
+							</thead>
+							<tbody class="divide-y divide-slate-100 dark:divide-slate-800 text-slate-650 dark:text-slate-350">
+								<tr class="bg-emerald-50/10 dark:bg-emerald-950/5">
+									<td class="py-3 pl-2 font-bold text-emerald-600 dark:text-emerald-400 font-outfit">🟢 Normal / Safe</td>
+									<td class="py-3">&lt; 30 mm</td>
+									<td class="py-3">&lt; 40%</td>
+									<td class="py-3">Standard baseline weekly logging.</td>
+								</tr>
+								<tr class="bg-amber-50/10 dark:bg-amber-950/5">
+									<td class="py-3 pl-2 font-bold text-amber-600 dark:text-amber-400 font-outfit">🟡 Advisory</td>
+									<td class="py-3">30 – 60 mm</td>
+									<td class="py-3">40% – 65%</td>
+									<td class="py-3">Alert village coordinators; inspect blockages.</td>
+								</tr>
+								<tr class="bg-orange-50/10 dark:bg-orange-950/5">
+									<td class="py-3 pl-2 font-bold text-orange-600 dark:text-orange-400 font-outfit">🟠 Warning Alert</td>
+									<td class="py-3">60 – 100 mm</td>
+									<td class="py-3">65% – 85%</td>
+									<td class="py-3">Prepare shelter points; trigger daily warnings.</td>
+								</tr>
+								<tr class="bg-red-50/10 dark:bg-red-950/5">
+									<td class="py-3 pl-2 font-bold text-red-600 dark:text-red-400 font-outfit">🔴 Evacuate</td>
+									<td class="py-3">&gt; 100 mm</td>
+									<td class="py-3">&gt; 85%</td>
+									<td class="py-3">Immediate relocation of at-risk settlements.</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				
+				<!-- Well Hydro-recharge Analysis -->
+				<div class="rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900/40 p-6 space-y-4 flex flex-col justify-between shadow-xs">
+					<div>
+						<h4 class="font-outfit text-base font-bold text-slate-900 dark:text-white mb-2">Aquifer Recharge Dynamics</h4>
+						<p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+							In the Kanniyakumari aquifer, we monitor the correlation between coastal rain events and the speed of well-water replenishment. 
+						</p>
+						<p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mt-2">
+							Sandy loam soils demonstrate quick saturation and rapid water-table bounce. Clayey layers block vertical infiltration, leading to water pooling on the surface and low well recovery.
+						</p>
+					</div>
+					<div class="rounded-2xl bg-blue-50/30 dark:bg-blue-950/20 border border-blue-100/30 p-4 text-[10px] text-blue-700 dark:text-blue-400 mt-4 leading-relaxed font-semibold">
+						📌 Hydro-Fact: Healthy root channels in agro-forestry sites act as natural pipelines, speeding up deep aquifer recharge by 400% compared to deforested soil.
+					</div>
+				</div>
 			</div>
 		</div>
 
@@ -192,6 +296,26 @@ import Layout from '../../layouts/Layout.astro';
 				<p class="text-xs text-slate-600 dark:text-slate-400">
 					Simulating candidate placements, LMS SCORM progress audits, and automated resume parsing details.
 				</p>
+			</div>
+
+			<!-- SkillGrid LMS Metrics Cards -->
+			<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+				<div class="rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white/50 dark:bg-slate-900/40 p-4 shadow-xs">
+					<span class="block text-[10px] uppercase font-bold text-slate-500 dark:text-slate-450">Total Enrolled</span>
+					<span class="font-outfit font-black text-xl text-slate-900 dark:text-white">184 Youth</span>
+				</div>
+				<div class="rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white/50 dark:bg-slate-900/40 p-4 shadow-xs">
+					<span class="block text-[10px] uppercase font-bold text-slate-500 dark:text-slate-455">Completion Rate</span>
+					<span class="font-outfit font-black text-xl text-emerald-600 dark:text-emerald-450">92.4%</span>
+				</div>
+				<div class="rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white/50 dark:bg-slate-900/40 p-4 shadow-xs">
+					<span class="block text-[10px] uppercase font-bold text-slate-500 dark:text-slate-450">Placements Secured</span>
+					<span class="font-outfit font-black text-xl text-indigo-600 dark:text-indigo-400">46 Placed</span>
+				</div>
+				<div class="rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white/50 dark:bg-slate-900/40 p-4 shadow-xs">
+					<span class="block text-[10px] uppercase font-bold text-slate-500 dark:text-slate-450">Current Partners</span>
+					<span class="font-outfit font-black text-xl text-amber-600 dark:text-amber-455">12 Employers</span>
+				</div>
 			</div>
 
 			<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -217,23 +341,47 @@ import Layout from '../../layouts/Layout.astro';
 									<td class="py-3">
 										<span class="inline-flex items-center rounded-md bg-emerald-50 dark:bg-emerald-950/40 px-2 py-0.5 text-[10px] font-bold text-emerald-700 dark:text-emerald-450 border border-emerald-500/10 dark:border-emerald-500/20">94%</span>
 									</td>
-									<td class="py-3 text-slate-500 dark:text-slate-400">Interview Scheduled</td>
+									<td class="py-3 text-slate-500 dark:text-slate-450">Interview Scheduled</td>
 								</tr>
 								<tr>
 									<td class="py-3 pl-2 font-semibold text-slate-805 dark:text-slate-200">Anitha S.</td>
 									<td class="py-3">Micro-irrigation Systems</td>
 									<td class="py-3">
-										<span class="inline-flex items-center rounded-md bg-emerald-50 dark:bg-emerald-950/40 px-2 py-0.5 text-[10px] font-bold text-emerald-700 dark:text-emerald-450 border border-emerald-500/10 dark:border-emerald-500/20">88%</span>
+										<span class="inline-flex items-center rounded-md bg-emerald-50 dark:bg-emerald-950/40 px-2 py-0.5 text-[10px] font-bold text-emerald-700 dark:text-emerald-455 border border-emerald-500/10 dark:border-emerald-500/20">88%</span>
 									</td>
-									<td class="py-3 text-emerald-700 dark:text-emerald-400">Placed (Ranipet Hub)</td>
+									<td class="py-3 text-emerald-700 dark:text-emerald-400 font-semibold">Placed (Ranipet Hub)</td>
 								</tr>
 								<tr>
 									<td class="py-3 pl-2 font-semibold text-slate-805 dark:text-slate-200">Karthik Raja</td>
 									<td class="py-3">Soil Nutrient Analysis</td>
 									<td class="py-3">
-										<span class="inline-flex items-center rounded-md bg-amber-50 dark:bg-amber-950/30 px-2 py-0.5 text-[10px] font-bold text-amber-700 dark:text-amber-450 border border-amber-500/10 dark:border-emerald-500/20">72%</span>
+										<span class="inline-flex items-center rounded-md bg-amber-50 dark:bg-amber-950/30 px-2 py-0.5 text-[10px] font-bold text-amber-700 dark:text-amber-450 border border-amber-500/10 dark:border-amber-500/20">72%</span>
 									</td>
-									<td class="py-3 text-slate-500 dark:text-slate-400">In Training</td>
+									<td class="py-3 text-slate-500 dark:text-slate-450 font-medium">In Training</td>
+								</tr>
+								<tr>
+									<td class="py-3 pl-2 font-semibold text-slate-805 dark:text-slate-200">Suresh Pillai</td>
+									<td class="py-3">Organic Composting</td>
+									<td class="py-3">
+										<span class="inline-flex items-center rounded-md bg-emerald-50 dark:bg-emerald-950/40 px-2 py-0.5 text-[10px] font-bold text-emerald-700 dark:text-emerald-450 border border-emerald-500/10 dark:border-emerald-500/20">91%</span>
+									</td>
+									<td class="py-3 text-emerald-700 dark:text-emerald-400 font-semibold">Placed (Nilgiris Hub)</td>
+								</tr>
+								<tr>
+									<td class="py-3 pl-2 font-semibold text-slate-805 dark:text-slate-200">Priya Dharshini</td>
+									<td class="py-3">Drip Irrigation Setup</td>
+									<td class="py-3">
+										<span class="inline-flex items-center rounded-md bg-emerald-50 dark:bg-emerald-950/40 px-2 py-0.5 text-[10px] font-bold text-emerald-700 dark:text-emerald-450 border border-emerald-500/10 dark:border-emerald-500/20">85%</span>
+									</td>
+									<td class="py-3 text-slate-500 dark:text-slate-455">Interview Scheduled</td>
+								</tr>
+								<tr>
+									<td class="py-3 pl-2 font-semibold text-slate-805 dark:text-slate-200">Selvam A.</td>
+									<td class="py-3">Nursery Plant Grafting</td>
+									<td class="py-3">
+										<span class="inline-flex items-center rounded-md bg-amber-50 dark:bg-amber-950/30 px-2 py-0.5 text-[10px] font-bold text-amber-700 dark:text-amber-450 border border-amber-500/10 dark:border-amber-500/20">64%</span>
+									</td>
+									<td class="py-3 text-slate-500 dark:text-slate-450 font-medium">In Training</td>
 								</tr>
 							</tbody>
 						</table>

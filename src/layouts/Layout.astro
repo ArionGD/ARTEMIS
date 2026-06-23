@@ -24,6 +24,12 @@ import Footer from './Footer.astro';
 		<!-- Lucide Icons CDN -->
 		<script src="https://unpkg.com/lucide@latest" is:inline></script>
 		<script is:inline>
+			// Force light theme by default on first load of a new session
+			if (!sessionStorage.getItem('theme-initialized')) {
+				localStorage.setItem('theme', 'light');
+				sessionStorage.setItem('theme-initialized', 'true');
+			}
+
 			// Set theme early to avoid FOUC
 			const theme = localStorage.getItem('theme') || 'light';
 			if (theme === 'dark') {
